@@ -1,0 +1,182 @@
+# Architect Templates
+
+# System Design Template
+system_design_template: |
+  # Technical Design: {{ title }}
+  
+  ## Architecture Overview
+  {{ architecture_overview or "High-level system architecture diagram and description" }}
+  
+  ## System Components
+  {% for component in system_components %}
+  ### {{ component.name }}
+  - **Purpose**: {{ component.purpose }}
+  - **Technology**: {{ component.technology }}
+  - **Responsibilities**: {{ component.responsibilities }}
+  {% endfor %}
+  
+  ## API Design
+  {% for api in apis %}
+  ### {{ api.name }}
+  - **Method**: {{ api.method }}
+  - **Path**: {{ api.path }}
+  - **Description**: {{ api.description }}
+  - **Request**: {{ api.request_schema }}
+  - **Response**: {{ api.response_schema }}
+  - **Authentication**: {{ api.authentication }}
+  {% endfor %}
+  
+  ## Database Schema
+  {% for table in database_tables %}
+  ### {{ table.name }}
+  - **Columns**: {{ table.columns }}
+  - **Indexes**: {{ table.indexes }}
+  - **Relationships**: {{ table.relationships }}
+  {% endfor %}
+  
+  ## Technology Stack
+  {% for tech in technology_stack %}
+  - **{{ tech.category }}**: {{ tech.technology }}
+  {% endfor %}
+  
+  ## Non-Functional Requirements
+  ### Performance
+  {% for req in performance_requirements %}
+  - {{ req }}
+  {% endfor %}
+  
+  ### Security
+  {% for req in security_requirements %}
+  - {{ req }}
+  {% endfor %}
+  
+  ### Scalability
+  {% for req in scalability_requirements %}
+  - {{ req }}
+  {% endfor %}
+  
+  ## Integration Points
+  {% for integration in integrations %}
+  - **{{ integration.name }}**: {{ integration.description }}
+  {% endfor %}
+  
+  ## Deployment Architecture
+  {{ deployment_architecture or "Deployment and infrastructure architecture description" }}
+
+# Architecture Guidance
+architecture_guidance: |
+  # System Architecture Design Guide
+  
+  ## Required Components
+  Your technical design should include:
+  
+  1. **Architecture Overview**: High-level system design with components and interactions
+  2. **API Design**: Detailed API specifications with request/response schemas
+  3. **Database Schema**: Complete database design with relationships and indexes
+  4. **Technology Stack**: Technologies, frameworks, and tools to be used
+  5. **Non-Functional Requirements**: Performance, security, scalability requirements
+  6. **Integration Points**: External system integrations and data flows
+  
+  ## Architecture Patterns
+  Consider these common patterns:
+  
+  ### Microservices Architecture
+  - Independent deployment of services
+  - Service communication via APIs/messaging
+  - Database per service pattern
+  - API Gateway for external access
+  
+  ### Event-Driven Architecture
+  - Loose coupling between components
+  - Event sourcing for audit trails
+  - CQRS for read/write separation
+  - Message queues for async processing
+  
+  ### Layered Architecture
+  - Presentation layer (UI/API)
+  - Business logic layer
+  - Data access layer
+  - Clear separation of concerns
+  
+  ## Best Practices
+  - Design for failure and resilience
+  - Use appropriate data stores for different needs
+  - Implement proper authentication and authorization
+  - Consider monitoring and observability
+  - Plan for horizontal scaling
+  - Use caching strategies appropriately
+  - Implement proper logging and tracing
+  
+  ## Security Considerations
+  - Input validation and sanitization
+  - Authentication and authorization mechanisms
+  - Data encryption at rest and in transit
+  - API rate limiting and throttling
+  - Audit logging for sensitive operations
+  - Secure configuration management
+  - Regular security testing
+  
+  ## Performance Considerations
+  - Database optimization and indexing
+  - Caching strategies (Redis, Memcached)
+  - Load balancing and auto-scaling
+  - Asynchronous processing for long operations
+  - Content delivery networks (CDNs)
+  - Database connection pooling
+  - Query optimization
+
+# Technical Spec Template
+technical_spec_template: |
+  # Technical Specification: {{ title }}
+  
+  ## Overview
+  {{ overview or "Brief overview of the technical specification" }}
+  
+  ## Requirements Analysis
+  ### Functional Requirements
+  {% for req in functional_requirements %}
+  - FR{{ loop.index }}: {{ req }}
+  {% endfor %}
+  
+  ### Non-Functional Requirements
+  {% for req in non_functional_requirements %}
+  - NFR{{ loop.index }}: {{ req }}
+  {% endfor %}
+  
+  ## Design Decisions
+  {% for decision in design_decisions %}
+  ### {{ decision.title }}
+  - **Decision**: {{ decision.decision }}
+  - **Rationale**: {{ decision.rationale }}
+  - **Alternatives Considered**: {{ decision.alternatives }}
+  - **Impact**: {{ decision.impact }}
+  {% endfor %}
+  
+  ## Implementation Approach
+  {{ implementation_approach or "Detailed implementation strategy" }}
+  
+  ## Testing Strategy
+  ### Unit Testing
+  - Coverage target: {{ unit_test_coverage or "80%" }}
+  - Testing framework: {{ unit_test_framework or "pytest" }}
+  
+  ### Integration Testing
+  - Coverage target: {{ integration_test_coverage or "70%" }}
+  - Testing approach: {{ integration_test_approach or "API testing" }}
+  
+  ### Performance Testing
+  - Response time requirements: {{ performance_requirements or "< 2s for 95% of requests" }}
+  - Load testing strategy: {{ load_testing_strategy or "Simulate 1000 concurrent users" }}
+  
+  ## Risk Assessment
+  {% for risk in risks %}
+  ### {{ risk.name }}
+  - **Probability**: {{ risk.probability }}
+  - **Impact**: {{ risk.impact }}
+  - **Mitigation**: {{ risk.mitigation }}
+  {% endfor %}
+  
+  ## Success Criteria
+  {% for criterion in success_criteria %}
+  - {{ criterion }}
+  {% endfor %}

@@ -1,0 +1,44 @@
+[project]
+name = "specwrite-mcp"
+version = "0.1.0"
+description = "A Python MCP server for SpecFlow-inspired development workflows"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "SpecWrite Team"}
+]
+keywords = ["mcp", "specflow", "gherkin", "bdd", "development"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "gherkin-official>=34.0.0",
+    "jinja2>=3.1.6",
+    "mcp>=1.13.1",
+    "pyyaml>=6.0.2",
+    "trio>=0.30.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-username/specwrite-mcp"
+Repository = "https://github.com/your-username/specwrite-mcp.git"
+Issues = "https://github.com/your-username/specwrite-mcp/issues"
+
+[project.scripts]
+specwrite-mcp = "specwrite_mcp.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["specwrite_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = ["specwrite_mcp", "README.md", "pyproject.toml"]

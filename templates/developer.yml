@@ -1,0 +1,255 @@
+# Developer Templates
+
+# Feature Implementation Template
+feature_template: |
+  # Feature Implementation: {{ title }}
+  
+  ## Overview
+  {{ overview or "Brief overview of the feature to be implemented" }}
+  
+  ## Requirements
+  {% for req in requirements %}
+  - {{ req }}
+  {% endfor %}
+  
+  ## Code Structure
+  {% for file in files %}
+  ### {{ file.path }}
+  ```{{ file.language }}
+  {{ file.content }}
+  ```
+  {% endfor %}
+  
+  ## Implementation Details
+  {{ implementation_details or "Detailed implementation approach" }}
+  
+  ## Error Handling
+  {% for error in error_handling %}
+  ### {{ error.scenario }}
+  - **Exception**: {{ error.exception }}
+  - **Handling**: {{ error.handling }}
+  - **Recovery**: {{ error.recovery }}
+  {% endfor %}
+  
+  ## Performance Considerations
+  {% for consideration in performance_considerations %}
+  - {{ consideration }}
+  {% endfor %}
+  
+  ## Testing Strategy
+  ### Unit Tests
+  {% for test in unit_tests %}
+  ```python
+  def test_{{ test.name }}():
+      """{{ test.description }}"""
+      {{ test.code }}
+  ```
+  {% endfor %}
+  
+  ### Integration Tests
+  {% for test in integration_tests %}
+  ```python
+  def test_{{ test.name }}():
+      """{{ test.description }}"""
+      {{ test.code }}
+  ```
+  {% endfor %}
+  
+  ## Dependencies
+  {% for dep in dependencies %}
+  - {{ dep.name }} ({{ dep.version }}): {{ dep.purpose }}
+  {% endfor %}
+  
+  ## Deployment Notes
+  {{ deployment_notes or "Deployment instructions and considerations" }}
+
+# Code Writing Template
+code_template: |
+  # Code Implementation: {{ title }}
+  
+  ## Purpose
+  {{ purpose or "Purpose of this code implementation" }}
+  
+  ## File Structure
+  {% for file in files %}
+  ### {{ file.path }}
+  ```{{ file.language }}
+  {{ file.content }}
+  ```
+  {% endfor %}
+  
+  ## Key Functions/Classes
+  {% for func in functions %}
+  ### {{ func.name }}
+  ```{{ func.language }}
+  {{ func.signature }}
+  ```
+  **Purpose**: {{ func.purpose }}
+  **Parameters**: {{ func.parameters }}
+  **Returns**: {{ func.returns }}
+  **Raises**: {{ func.raises }}
+  {% endfor %}
+  
+  ## Configuration
+  {% for config in configuration %}
+  ### {{ config.name }}
+  - **Type**: {{ config.type }}
+  - **Default**: {{ config.default }}
+  - **Description**: {{ config.description }}
+  {% endfor %}
+  
+  ## Usage Examples
+  {% for example in usage_examples %}
+  ### {{ example.title }}
+  ```{{ example.language }}
+  {{ example.code }}
+  ```
+  **Output**: {{ example.output }}
+  {% endfor %}
+  
+  ## Dependencies
+  {% for dep in dependencies %}
+  - {{ dep.name }}: {{ dep.purpose }}
+  {% endfor %}
+
+# Test Creation Template
+test_template: |
+  # Test Suite: {{ title }}
+  
+  ## Overview
+  {{ overview or "Overview of the test suite" }}
+  
+  ## Test Environment
+  - **Framework**: {{ test_framework or "pytest" }}
+  - **Coverage Target**: {{ coverage_target or "80%" }}
+  - **Test Data**: {{ test_data or "Mock data setup" }}
+  
+  ## Unit Tests
+  {% for test in unit_tests %}
+  ### {{ test.name }}
+  ```python
+  def test_{{ test.name }}():
+      """{{ test.description }}"""
+      # Arrange
+      {{ test.arrange }}
+      
+      # Act
+      {{ test.act }}
+      
+      # Assert
+      {{ test.assertion }}
+  ```
+  {% endfor %}
+  
+  ## Integration Tests
+  {% for test in integration_tests %}
+  ### {{ test.name }}
+  ```python
+  def test_{{ test.name }}():
+      """{{ test.description }}"""
+      # Setup
+      {{ test.setup }}
+      
+      # Test
+      {{ test.test }}
+      
+      # Verify
+      {{ test.verify }}
+  ```
+  {% endfor %}
+  
+  ## Mock Objects
+  {% for mock in mocks %}
+  ### {{ mock.name }}
+  ```python
+  {{ mock.code }}
+  ```
+  {% endfor %}
+  
+  ## Test Data
+  {% for data in test_data_setup %}
+  ### {{ data.name }}
+  ```python
+  {{ data.code }}
+  ```
+  {% endfor %}
+  
+  ## Test Execution
+  ### Running Tests
+  ```bash
+  {{ test_command or "pytest tests/" }}
+  ```
+  
+  ### Coverage Report
+  ```bash
+  {{ coverage_command or "pytest --cov=. tests/" }}
+  ```
+
+# Development Guidance
+development_guidance: |
+  # Feature Implementation Guide
+  
+  ## Implementation Process
+  1. **Understand Requirements**: Review product specs and technical designs
+  2. **Plan Implementation**: Break down into manageable tasks
+  3. **Write Code**: Follow coding standards and best practices
+  4. **Write Tests**: Ensure comprehensive test coverage
+  5. **Review Code**: Get feedback from peers
+  6. **Deploy**: Release to staging/production
+  
+  ## Code Quality Standards
+  ### Python Best Practices
+  - Follow PEP 8 style guide
+  - Use type hints for better code documentation
+  - Write docstrings for all public methods
+  - Keep functions small and focused
+  - Use meaningful variable names
+  - Handle exceptions appropriately
+  
+  ### JavaScript/TypeScript Best Practices
+  - Use ESLint for code linting
+  - Prefer const over let when possible
+  - Use async/await for asynchronous operations
+  - Write JSDoc comments for public APIs
+  - Use TypeScript for better type safety
+  
+  ## Testing Best Practices
+  ### Unit Testing
+  - Test one thing at a time
+  - Use descriptive test names
+  - Arrange-Act-Assert pattern
+  - Mock external dependencies
+  - Test edge cases and error conditions
+  
+  ### Integration Testing
+  - Test component interactions
+  - Use real databases when possible
+  - Test API endpoints
+  - Test error flows
+  - Test performance characteristics
+  
+  ## Common Pitfalls to Avoid
+  - Not writing tests for new code
+  - Ignoring error handling
+  - Writing overly complex code
+  - Not following established patterns
+  - Hardcoding configuration values
+  - Ignoring security considerations
+  - Not considering performance impact
+  
+  ## Performance Considerations
+  - Database query optimization
+  - Caching strategies
+  - Memory usage optimization
+  - Network request optimization
+  - Algorithm complexity analysis
+  - Profiling and benchmarking
+  
+  ## Security Considerations
+  - Input validation and sanitization
+  - Authentication and authorization
+  - Data encryption
+  - SQL injection prevention
+  - XSS prevention
+  - CSRF protection
+  - Secure password handling

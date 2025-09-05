@@ -1,0 +1,103 @@
+# Product Manager Templates
+
+# Product Specification Template
+spec_template: |
+  # Product Specification: {{ title }}
+  
+  ## Business Value
+  {{ business_value or "Describe the business value and problem being solved" }}
+  
+  ## User Stories
+  {% for story in user_stories %}
+  - As a {{ story.user_type }}, I want {{ story.feature }} so that {{ story.benefit }}
+  {% endfor %}
+  
+  ## Acceptance Criteria
+  {% for criterion in acceptance_criteria %}
+  - Given {{ criterion.context }}, when {{ criterion.action }}, then {{ criterion.outcome }}
+  {% endfor %}
+  
+  ## Success Metrics
+  {% for metric in success_metrics %}
+  - {{ metric }}
+  {% endfor %}
+  
+  ## Dependencies
+  {% for dependency in dependencies %}
+  - {{ dependency }}
+  {% endfor %}
+  
+  ## Priority
+  {{ priority or "Medium" }}
+  
+  ## Estimated Effort
+  {{ estimated_effort or "TBD" }}
+
+# Spec Creation Guidance
+spec_guidance: |
+  # Product Specification Creation Guide
+  
+  ## Required Sections
+  Your product specification should include:
+  
+  1. **Business Value**: Why is this feature important? What problem does it solve?
+  2. **User Stories**: Who are the users and what do they want to accomplish?
+  3. **Acceptance Criteria**: How will we know when the feature is complete?
+  4. **Success Metrics**: How will we measure the success of this feature?
+  5. **Dependencies**: What other features, teams, or resources are needed?
+  
+  ## Best Practices
+  - Write user stories in the format: "As a [user type], I want [feature] so that [benefit]"
+  - Make acceptance criteria specific and measurable
+  - Include both quantitative and qualitative success metrics
+  - Identify dependencies early to avoid bottlenecks
+  - Consider edge cases and alternative scenarios
+  
+  ## Example User Stories
+  - As a customer, I want to save items to my wishlist so that I can purchase them later
+  - As an admin, I want to view user analytics so that I can make data-driven decisions
+  - As a mobile user, I want offline access so that I can use the app without internet
+  
+  ## Common Pitfalls to Avoid
+  - Vague requirements that can be interpreted multiple ways
+  - Missing acceptance criteria
+  - Unmeasurable success metrics
+  - Overlooking technical constraints
+  - Ignoring edge cases and error scenarios
+
+# Review Requirements Guidance
+review_guidance: |
+  # Requirements Review Guide
+  
+  ## Review Checklist
+  ### Content Quality
+  - [ ] Are user stories clear and specific?
+  - [ ] Do acceptance criteria define done/unambiguously?
+  - [ ] Are success metrics measurable and achievable?
+  - [ ] Is business value clearly articulated?
+  
+  ### Completeness
+  - [ ] All user roles are considered
+  - [ ] Edge cases are addressed
+  - [ ] Dependencies are identified
+  - [ ] Constraints and limitations are documented
+  
+  ### Consistency
+  - [ ] No contradictory requirements
+  - [ ] Terminology is consistent throughout
+  - [ ] Requirements align with business goals
+  - [ ] Success criteria support business objectives
+  
+  ## Review Questions
+  1. What is the primary business problem being solved?
+  2. Who are the primary users and what are their needs?
+  3. How will we measure success?
+  4. What could go wrong with this feature?
+  5. What assumptions are we making?
+  
+  ## Improvement Suggestions
+  Based on your review, provide specific, actionable feedback:
+  - "Consider adding edge case handling for..."
+  - "The acceptance criteria could be more specific by..."
+  - "Additional user stories to consider include..."
+  - "Success metrics could be enhanced by..."

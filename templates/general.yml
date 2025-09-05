@@ -1,0 +1,127 @@
+# General Templates
+
+# Project Status Template
+project_status_template: |
+  # Project Status Report
+  
+  ## Project Overview
+  - **Project Name**: {{ project_name }}
+  - **Current Phase**: {{ current_phase }}
+  - **Overall Progress**: {{ overall_progress }}%
+  - **Last Updated**: {{ last_updated }}
+  
+  ## Phase Progress
+  {% for phase in phases %}
+  ### {{ phase.name }}
+  - **Status**: {{ phase.status }}
+  - **Progress**: {{ phase.progress }}%
+  - **Key Deliverables**: {{ phase.key_deliverables }}
+  - **Next Milestone**: {{ phase.next_milestone }}
+  {% endfor %}
+  
+  ## Key Metrics
+  - **Total Specifications**: {{ total_specs }}
+  - **Completed Specifications**: {{ completed_specs }}
+  - **Total Technical Designs**: {{ total_tech_designs }}
+  - **Completed Technical Designs**: {{ completed_tech_designs }}
+  - **Total Features Implemented**: {{ total_features }}
+  - **Completed Features**: {{ completed_features }}
+  - **Total Test Plans**: {{ total_test_plans }}
+  - **Completed Test Plans**: {{ completed_test_plans }}
+  
+  ## Recent Activity
+  {% for activity in recent_activity %}
+  - **{{ activity.timestamp }}**: {{ activity.description }}
+  {% endfor %}
+  
+  ## Upcoming Tasks
+  {% for task in upcoming_tasks %}
+  - **{{ task.due_date }}**: {{ task.description }} ({{ task.assignee }})
+  {% endfor %}
+  
+  ## Blockers and Issues
+  {% for blocker in blockers %}
+  - **{{ blocker.severity }}**: {{ blocker.description }} ({{ blocker.owner }})
+  {% endfor %}
+  
+  ## Quality Metrics
+  - **Average Spec Quality Score**: {{ avg_spec_quality }}/10
+  - **Average Design Quality Score**: {{ avg_design_quality }}/10
+  - **Average Code Quality Score**: {{ avg_code_quality }}/10
+  - **Average Test Quality Score**: {{ avg_test_quality }}/10
+  - **Test Coverage**: {{ test_coverage }}%
+  - **Defect Density**: {{ defect_density }} defects/KLOC
+
+# Gherkin Feature Template
+gherkin_feature_template: |
+  Feature: {{ feature_name }}
+    {{ feature_description }}
+  
+  {% for scenario in scenarios %}
+  Scenario: {{ scenario.name }}
+    {% for step in scenario.steps %}
+    {{ step.keyword }} {{ step.text }}
+    {% endfor %}
+  {% endfor %}
+  
+  {% for background in backgrounds %}
+  Background: {{ background.name }}
+    {% for step in background.steps %}
+    {{ step.keyword }} {{ step.text }}
+    {% endfor %}
+  {% endfor %}
+  
+  {% for rule in rules %}
+  Rule: {{ rule.name }}
+    {{ rule.description }}
+    
+    {% for scenario in rule.scenarios %}
+    Scenario: {{ scenario.name }}
+      {% for step in scenario.steps %}
+      {{ step.keyword }} {{ step.text }}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+
+# Role Switching Template
+role_switching_template: |
+  # Role Switch: {{ new_role }}
+  
+  ## Role Information
+  - **Role**: {{ new_role }}
+  - **Description**: {{ role_description }}
+  - **Available Tools**: {{ available_tools | join(', ') }}
+  - **Current Project Phase**: {{ current_phase }}
+  
+  ## Role Responsibilities
+  {% for responsibility in responsibilities %}
+  - {{ responsibility }}
+  {% endfor %}
+  
+  ## Accessible Tools
+  {% for tool in available_tools %}
+  ### {{ tool }}
+  - **Purpose**: {{ tool_purpose }}
+  - **Usage**: {{ tool_usage }}
+  {% endfor %}
+  
+  ## Best Practices for {{ new_role }}
+  {% for practice in best_practices %}
+  - {{ practice }}
+  {% endfor %}
+  
+  ## Current Project Context
+  ### Completed Work
+  {% for work in completed_work %}
+  - {{ work.type }}: {{ work.title }} ({{ work.completion_date }})
+  {% endfor %}
+  
+  ### Work in Progress
+  {% for work in work_in_progress %}
+  - {{ work.type }}: {{ work.title }} ({{ work.progress }}%)
+  {% endfor %}
+  
+  ### Upcoming Tasks
+  {% for task in upcoming_tasks %}
+  - {{ task.title }} (Due: {{ task.due_date }})
+  {% endfor %}

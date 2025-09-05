@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "specwrite-mcp": {
+      "command": "uvx",
+      "args": [
+        "--project", "/home/kali/specwrite-mcp",
+        "python", "/home/kali/specwrite-mcp/main.py"
+      ]
+    }
+  }
+}

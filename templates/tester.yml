@@ -1,0 +1,352 @@
+# Tester Templates
+
+# Test Plan Template
+test_plan_template: |
+  # Test Plan: {{ title }}
+  
+  ## Overview
+  {{ overview or "Overview of the testing strategy" }}
+  
+  ## Test Scope
+  ### In Scope
+  {% for item in in_scope %}
+  - {{ item }}
+  {% endfor %}
+  
+  ### Out of Scope
+  {% for item in out_of_scope %}
+  - {{ item }}
+  {% endfor %}
+  
+  ## Test Strategy
+  ### Unit Tests
+  - **Coverage Target**: {{ unit_test_coverage or "80%" }}
+  - **Framework**: {{ unit_test_framework or "pytest" }}
+  - **Components to Test**:
+  {% for component in unit_test_components %}
+  - {{ component }}
+  {% endfor %}
+  
+  ### Integration Tests
+  - **Coverage Target**: {{ integration_test_coverage or "70%" }}
+  - **Framework**: {{ integration_test_framework or "pytest" }}
+  - **Areas to Test**:
+  {% for area in integration_test_areas %}
+  - {{ area }}
+  {% endfor %}
+  
+  ### System Tests
+  - **Coverage Target**: {{ system_test_coverage or "60%" }}
+  - **Type**: {{ system_test_type or "End-to-end testing" }}
+  - **Scenarios to Test**:
+  {% for scenario in system_test_scenarios %}
+  - {{ scenario }}
+  {% endfor %}
+  
+  ### Performance Tests
+  - **Response Time Requirements**: {{ performance_requirements or "< 2s for 95% of requests" }}
+  - **Load Testing**: {{ load_testing or "1000 concurrent users" }}
+  - **Stress Testing**: {{ stress_testing or "2000 concurrent users" }}
+  
+  ### Security Tests
+  {% for test in security_tests %}
+  - {{ test }}
+  {% endfor %}
+  
+  ## Test Cases
+  {% for test_case in test_cases %}
+  ### {{ test_case.name }}
+  - **Priority**: {{ test_case.priority }}
+  - **Type**: {{ test_case.type }}
+  - **Preconditions**: {{ test_case.preconditions }}
+  - **Test Data**: {{ test_case.test_data }}
+  - **Steps**:
+  {% for step in test_case.steps %}
+  {{ loop.index }}. {{ step }}
+  {% endfor %}
+  - **Expected Results**: {{ test_case.expected_results }}
+  - **Acceptance Criteria**: {{ test_case.acceptance_criteria }}
+  {% endfor %}
+  
+  ## Test Environment
+  ### Hardware Requirements
+  {% for req in hardware_requirements %}
+  - {{ req }}
+  {% endfor %}
+  
+  ### Software Requirements
+  {% for req in software_requirements %}
+  - {{ req }}
+  {% endfor %}
+  
+  ### Test Data Setup
+  {{ test_data_setup or "Test data preparation instructions" }}
+  
+  ## Test Schedule
+  ### Test Phases
+  {% for phase in test_phases %}
+  - **{{ phase.name }}**: {{ phase.duration }} ({{ phase.start_date }} - {{ phase.end_date }})
+  {% endfor %}
+  
+  ### Resource Allocation
+  {% for resource in resources %}
+  - **{{ resource.role }}**: {{ resource.name }} ({{ resource.hours }} hours)
+  {% endfor %}
+  
+  ## Entry Criteria
+  {% for criterion in entry_criteria %}
+  - {{ criterion }}
+  {% endfor %}
+  
+  ## Exit Criteria
+  {% for criterion in exit_criteria %}
+  - {{ criterion }}
+  {% endfor %}
+  
+  ## Risk Assessment
+  {% for risk in risks %}
+  ### {{ risk.name }}
+  - **Probability**: {{ risk.probability }}
+  - **Impact**: {{ risk.impact }}
+  - **Mitigation**: {{ risk.mitigation }}
+  {% endfor %}
+  
+  ## Deliverables
+  {% for deliverable in deliverables %}
+  - {{ deliverable }}
+  {% endfor %}
+  
+  ## Approvals
+  {% for approval in approvals %}
+  - **{{ approval.role }}**: {{ approval.name }} ({{ approval.date }})
+  {% endfor %}
+
+# Test Execution Template
+test_execution_template: |
+  # Test Execution Report: {{ title }}
+  
+  ## Execution Summary
+  - **Test Suite**: {{ test_suite }}
+  - **Execution Date**: {{ execution_date }}
+  - **Executor**: {{ executor }}
+  - **Environment**: {{ environment }}
+  
+  ## Test Results Summary
+  - **Total Tests**: {{ total_tests }}
+  - **Passed**: {{ passed_tests }}
+  - **Failed**: {{ failed_tests }}
+  - **Skipped**: {{ skipped_tests }}
+  - **Pass Rate**: {{ pass_rate }}%
+  
+  ## Detailed Results
+  {% for result in test_results %}
+  ### {{ result.test_name }}
+  - **Status**: {{ result.status }}
+  - **Duration**: {{ result.duration }}
+  - **Execution Time**: {{ result.execution_time }}
+  
+  {% if result.status == "Failed" %}
+  **Failure Details**:
+  - **Error**: {{ result.error }}
+  - **Stack Trace**: {{ result.stack_trace }}
+  - **Screenshots**: {{ result.screenshots }}
+  {% endif %}
+  
+  **Test Data**:
+  - **Input**: {{ result.test_data.input }}
+  - **Expected**: {{ result.test_data.expected }}
+  - **Actual**: {{ result.test_data.actual }}
+  {% endfor %}
+  
+  ## Performance Results
+  {% for metric in performance_metrics %}
+  ### {{ metric.name }}
+  - **Target**: {{ metric.target }}
+  - **Actual**: {{ metric.actual }}
+  - **Status**: {{ metric.status }}
+  {% endfor %}
+  
+  ## Issues Found
+  {% for issue in issues %}
+  ### {{ issue.id }}: {{ issue.title }}
+  - **Severity**: {{ issue.severity }}
+  - **Priority**: {{ issue.priority }}
+  - **Description**: {{ issue.description }}
+  - **Steps to Reproduce**: {{ issue.steps_to_reproduce }}
+  - **Expected Result**: {{ issue.expected_result }}
+  - **Actual Result**: {{ issue.actual_result }}
+  {% endfor %}
+  
+  ## Recommendations
+  {% for recommendation in recommendations %}
+  - {{ recommendation }}
+  {% endfor %}
+  
+  ## Next Steps
+  {% for step in next_steps %}
+  - {{ step }}
+  {% endfor %}
+
+# Test Report Template
+test_report_template: |
+  # Test Report: {{ title }}
+  
+  ## Executive Summary
+  {{ executive_summary or "High-level summary of test results" }}
+  
+  ## Test Coverage
+  ### Requirements Coverage
+  - **Total Requirements**: {{ total_requirements }}
+  - **Tested Requirements**: {{ tested_requirements }}
+  - **Coverage**: {{ requirements_coverage }}%
+  
+  ### Code Coverage
+  - **Lines**: {{ line_coverage }}%
+  - **Branches**: {{ branch_coverage }}%
+  - **Functions**: {{ function_coverage }}%
+  
+  ## Quality Metrics
+  {% for metric in quality_metrics %}
+  ### {{ metric.name }}
+  - **Target**: {{ metric.target }}
+  - **Actual**: {{ metric.actual }}
+  - **Status**: {{ metric.status }}
+  {% endfor %}
+  
+  ## Defect Analysis
+  ### Defect Distribution
+  {% for distribution in defect_distribution %}
+  - **{{ distribution.severity }}**: {{ distribution.count }} ({{ distribution.percentage }}%)
+  {% endfor %}
+  
+  ### Defect Trends
+  {{ defect_trends or "Analysis of defect trends over time" }}
+  
+  ## Test Environment Details
+  {{ test_environment_details or "Detailed test environment configuration" }}
+  
+  ## Lessons Learned
+  {% for lesson in lessons_learned %}
+  - {{ lesson }}
+  {% endfor %}
+  
+  ## Conclusion
+  {{ conclusion or "Overall conclusion about the quality of the system" }}
+
+# Testing Guidance
+testing_guidance: |
+  # Comprehensive Testing Guide
+  
+  ## Testing Types
+  ### Unit Testing
+  - **Purpose**: Test individual components in isolation
+  - **Focus**: Business logic, algorithms, data structures
+  - **Tools**: pytest, unittest, JUnit, Jest
+  - **Best Practices**:
+    - Test one thing at a time
+    - Use descriptive test names
+    - Mock external dependencies
+    - Test edge cases and error conditions
+    - Maintain high coverage (80%+)
+  
+  ### Integration Testing
+  - **Purpose**: Test component interactions
+  - **Focus**: API endpoints, database interactions, service communication
+  - **Tools**: Postman, REST Assured, SoapUI
+  - **Best Practices**:
+    - Test real integrations when possible
+    - Test error scenarios
+    - Test performance characteristics
+    - Validate data consistency
+  
+  ### System Testing
+  - **Purpose**: Test the entire system
+  - **Focus**: End-to-end workflows, user scenarios
+  - **Tools**: Selenium, Cypress, Playwright
+  - **Best Practices**:
+    - Test critical user journeys
+    - Test across different browsers/devices
+    - Test with realistic data volumes
+    - Include accessibility testing
+  
+  ### Performance Testing
+  - **Purpose**: Test system performance under load
+  - **Focus**: Response times, throughput, resource usage
+  - **Tools**: JMeter, Gatling, Locust
+  - **Best Practices**:
+    - Test with realistic load patterns
+    - Monitor system resources
+    - Test scalability limits
+    - Include baseline measurements
+  
+  ### Security Testing
+  - **Purpose**: Identify security vulnerabilities
+  - **Focus**: Authentication, authorization, data protection
+  - **Tools**: OWASP ZAP, Burp Suite, Nessus
+  - **Best Practices**:
+    - Follow OWASP testing guide
+    - Test common vulnerabilities (SQLi, XSS, CSRF)
+    - Test authentication and authorization
+    - Validate data encryption
+  
+  ## Test Planning Best Practices
+  ### Define Clear Scope
+  - Document what's in and out of scope
+  - Identify critical features to prioritize
+  - Consider time and resource constraints
+  
+  ### Create Comprehensive Test Cases
+  - Cover functional and non-functional requirements
+  - Include positive and negative test scenarios
+  - Define clear pass/fail criteria
+  - Consider edge cases and boundary conditions
+  
+  ### Plan Test Data
+  - Prepare realistic test data
+  - Consider data privacy requirements
+  - Plan for different data volumes
+  - Include edge case data
+  
+  ### Define Test Environment
+  - Document environment requirements
+  - Plan environment setup and teardown
+  - Consider environment-specific configurations
+  - Plan for test data management
+  
+  ## Test Execution Best Practices
+  ### Follow Test Processes
+  - Execute tests systematically
+  - Document test execution results
+  - Track defects properly
+  - Communicate progress regularly
+  
+  ### Manage Test Defects
+  - Document defects with clear reproduction steps
+  - Prioritize defects based on impact
+  - Track defect resolution progress
+  - Verify defect fixes
+  
+  ### Performance Testing
+  - Establish performance baselines
+  - Test with realistic load patterns
+  - Monitor system resources during testing
+  - Document performance bottlenecks
+  
+  ## Test Reporting Best Practices
+  ### Create Clear Reports
+  - Include executive summary for stakeholders
+  - Provide detailed technical information
+  - Include visualizations and charts
+  - Document lessons learned
+  
+  ### Track Quality Metrics
+  - Monitor test coverage metrics
+  - Track defect trends over time
+  - Measure quality KPIs
+  - Compare against industry benchmarks
+  
+  ### Provide Actionable Insights
+  - Identify quality trends and patterns
+  - Recommend process improvements
+  - Suggest areas for additional testing
+  - Document risk assessments
