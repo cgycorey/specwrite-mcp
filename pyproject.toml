@@ -26,9 +26,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your-username/specwrite-mcp"
-Repository = "https://github.com/your-username/specwrite-mcp.git"
-Issues = "https://github.com/your-username/specwrite-mcp/issues"
+Homepage = "https://github.com/cgycorey/specwrite-mcp"
+Repository = "https://github.com/cgycorey/specwrite-mcp.git"
+Issues = "https://github.com/cgycorey/specwrite-mcp/issues"
 
 # [project.scripts]
 # specwrite-mcp = "specwrite_mcp.main:main"
