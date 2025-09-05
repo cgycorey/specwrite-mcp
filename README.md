@@ -2,15 +2,15 @@
 
 A Python implementation of a SpecWrite-MCP server that enables AI-driven, four-stage software development workflows with role-based access control and Gherkin/BDD support.
 
-## ⚠️ Important: Build Required Before Use
-
-**Before using SpecWrite-MCP, you MUST build the project first:**
-
-```bash
-uv build
-```
-
-This creates the necessary wheel files that are required for the MCP server to function properly. Skipping this step will result import errors and server failures.
+> **⚠️ Important: Build Required Before Use**
+> 
+> **Before using SpecWrite-MCP, you MUST build the project first:**
+> 
+> ```bash
+> uv build
+> ```
+> 
+> This creates the necessary wheel files that are required for the MCP server to function properly. Skipping this step will result in import errors and server failures.
 
 ## 🙏 Inspiration & Credits
 
@@ -55,18 +55,18 @@ uv sync
 uv build
 ```
 
-**🚨 IMPORTANT**: The `uv build` step is **mandatory**. This creates the wheel files needed for the MCP server to function. Without this step, the server will fail to start with import errors.
+> **🚨 IMPORTANT**: The `uv build` step is **mandatory**. This creates the wheel files needed for the MCP server to function. Without this step, the server will fail to start with import errors.
 
 ### Basic Usage
 
-**⚠️ REMEMBER: You must run `uv build` first!**
-
-After building the wheels, you can run the MCP server in two ways:
+> **⚠️ REMEMBER: You must run `uv build` first!**
+> 
+> After building the wheels, you can run the MCP server in two ways:
 
 #### Method 1: Direct Python Execution
 ```bash
 # Run the MCP server
-uv run python main.py
+uv run python specwrite_mcp/main.py
 
 # Run tests
 uv run python tests/test_comprehensive.py
@@ -79,30 +79,27 @@ uv run python tests/test_server.py
 ```bash
 # Run using the built wheel
 uvx --with dist/specwrite_mcp-0.1.0-py3-none-any.whl python -m specwrite_mcp.main
-
-# Or for direct execution
-uvx --with dist/specwrite_mcp-0.1.0-py3-none-any.whl python main.py
 ```
 
 ### Quick Development Workflow
 
-**⚠️ Don't forget the build step!**
-
-```bash
-# 1. Install dependencies
-uv sync
-
-# 2. 🔥 BUILD THE PROJECT (MANDATORY!)
-uv build
-
-# 3. Run the server
-uvx --with dist/specwrite_mcp-0.1.0-py3-none-any.whl python -m specwrite_mcp.main
-
-# 4. Run tests
-uv run python tests/test_server.py
-```
-
-**Remember**: Step 2 (`uv build`) is not optional. The server will not work without it!
+> **⚠️ Don't forget the build step!**
+> 
+> ```bash
+> # 1. Install dependencies
+> uv sync
+> 
+> # 2. 🔥 BUILD THE PROJECT (MANDATORY!)
+> uv build
+> 
+> # 3. Run the server
+> uvx --with dist/specwrite_mcp-0.1.0-py3-none-any.whl python -m specwrite_mcp.main
+> 
+> # 4. Run tests
+> uv run python tests/test_server.py
+> ```
+> 
+> **Remember**: Step 2 (`uv build`) is not optional. The server will not work without it!
 
 ## 👥 Development Roles & Specification Requirements
 
@@ -117,11 +114,11 @@ uv run python tests/test_server.py
 - Market and competitive analysis
 - Stakeholder requirements documentation
 
-**Available Tools**:
+#### Available Tools
 - `create_spec`: Create product specifications and user stories
 - `review_requirements`: Review and refine requirements
 
-**Specification Format**:
+#### Specification Format
 ```markdown
 # Product Specification: [Feature Name]
 
@@ -156,11 +153,11 @@ uv run python tests/test_server.py
 - Integration patterns and middleware design
 - Deployment and infrastructure architecture
 
-**Available Tools**:
+#### Available Tools
 - `design_system`: Design system architecture
 - `create_technical_spec`: Create technical specifications
 
-**Specification Format**:
+#### Specification Format
 ```markdown
 # Technical Design: [System/Component Name]
 
@@ -205,12 +202,12 @@ uv run python tests/test_server.py
 - Error handling and logging implementations
 - Code reviews and refactoring
 
-**Available Tools**:
+#### Available Tools
 - `implement_feature`: Implement new features
 - `write_code`: Write production code
 - `create_tests`: Create unit and integration tests
 
-**Implementation Format**:
+#### Implementation Format
 ```markdown
 # Feature Implementation: [Feature Name]
 
@@ -250,12 +247,12 @@ uv run python tests/test_server.py
 - Regression testing suites
 - Test automation frameworks and scripts
 
-**Available Tools**:
+#### Available Tools
 - `create_test_plan`: Create comprehensive test plans
 - `execute_tests`: Execute test suites
 - `generate_test_reports`: Generate test reports and metrics
 
-**Test Plan Format**:
+#### Test Plan Format
 ```markdown
 # Test Plan: [Feature/System Name]
 

@@ -30,8 +30,8 @@ Homepage = "https://github.com/your-username/specwrite-mcp"
 Repository = "https://github.com/your-username/specwrite-mcp.git"
 Issues = "https://github.com/your-username/specwrite-mcp/issues"
 
-[project.scripts]
-specwrite-mcp = "specwrite_mcp.main:main"
+# [project.scripts]
+# specwrite-mcp = "specwrite_mcp.main:main"
 
 [build-system]
 requires = ["hatchling"]
